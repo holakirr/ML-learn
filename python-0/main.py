@@ -1,0 +1,16 @@
+print("Hello World!")
+lie: bool = False
+print(id(lie))
+print(round(11 * 2.5 / 3, 2))
+print(round(3.1415926**2 / 2))
+print(1.57 * 3 / 1.5 == 3.14)
+print(3**3 - 3 * (6 * 3 - 4.5 * 2) == 1)
+# print(type())
+obj = {"a": 1, "b": 2}
+print(type(obj))
+not_lie = bool(1)
+print(not_lie)
+my_list = list(range(1, 10))
+print(my_list)
+not_true = bool(0)
+print()
