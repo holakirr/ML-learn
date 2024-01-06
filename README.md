@@ -12,12 +12,12 @@ Here, I am learning the basics of Python and how to apply it in Machine Learning
 
 ## Contact
 
-- <[Website]>
-- <[Github]>
-- <[LinkedIn]>
-- <[Telegram]>
+- [Website]
+- [Github]
+- [LinkedIn]
+- [Telegram]
 
-[Website]: ttps://holakirr.co
-[Github]: ttps://github.com/holakir
-[LinkedIn]: ttps://www.linkedin.com/in/holakirr
-[Telegram]: ttps://t.me/holakir
+[Website]: https://holakirr.com
+[Github]: https://github.com/holakirr
+[LinkedIn]: https://www.linkedin.com/in/holakirr
+[Telegram]: https://t.me/holakirr
