@@ -187,7 +187,7 @@ print(processed_quotes_dict)
 ## Будет выведено:
 ## {'Преступление и наказание': ['а', 'знаешь', 'ли', 'что', 'низкие', 'потолки', 'и', 'тесные', 'комнаты', 'душу', 'и', 'ум', 'теснят'], 'Война и мир': ['и', 'нет', 'величия', 'там', 'где', 'нет', 'простоты', 'добра', 'и', 'правды'], 'Анна Каренина': ['если', 'искать', 'совершенства', 'то', 'никогда', 'не', 'будешь', 'доволен'], 'Детство': ['правил', 'у', 'нас', 'много', 'а', 'правды', 'нет'], 'Колесо времени': ['ничто', 'так', 'на', 'соединяет', 'людей', 'как', 'улыбка']}
 
-print("#" * 40, "Task 3", "#" * 40)
+print("#" * 40, "Example 5", "#" * 40)
 prices = {"яблоко": 99, "апельсин": 99, "вишня": 147, "персик": 145, "грейпфрут": 139}
 cut_taxes = lambda tup: (
     tup[0],
@@ -196,3 +196,78 @@ cut_taxes = lambda tup: (
 new_prices = dict(map(cut_taxes, prices.items()))
 ic(new_prices)
 ## new_prices = {'яблоко': 94.05, 'апельсин': 94.05, 'вишня': 139.65, 'персик': 137.75, 'грейпфрут': 132.05}
+
+print("#" * 40, "Task 3", "#" * 40)
+data = [
+    ("Amanda", 1.61, 51),
+    ("Patricia", 1.65, 61),
+    ("Marcos", 1.91, 101),
+]  # Положим lambda-функцию в переменную для удобства
+# x — кортеж (элемент исходного списка data)
+map_func = lambda x: (x[0], x[1], x[2], round(x[2] / (x[1] ** 2), 1))
+# Проверим работу функции для одного кортежа
+map_func(("Amanda", 1.61, 51))
+## Будет выведено:
+## ('Amanda', 1.61, 51, 19.7)
+
+# Создаём lambda-функцию, которая считает BMI, и применяем её к каждому элементу списка
+map_func = lambda x: (*x, round(x[2] / (x[1] ** 2), 1))
+updated_data = list(map(map_func, data))
+# Выводим результат
+print(updated_data)
+
+## Будет выведено:
+## [('Amanda', 1.61, 51, 19.7), ('Patricia', 1.65, 61, 22.4), ('Marcos', 1.91, 101, 27.7)]
+
+print("#" * 40, "Task 4", "#" * 40)
+guests = ["Boris", "Ivan", "Bob"]
+
+new_guests = list(map(lambda x: "Mr. " + x, guests))
+ic(new_guests)
+# new_guests = ["Mr. Boris", "Mr. Ivan", "Mr. Bob"]
+
+print("#" * 40, "Task 5", "#" * 40)
+docs = [
+    "//doc/5041434?query=data%20science",
+    "//doc/5041567?query=data%20science",
+    "//doc/4283670?query=data%20science",
+    "//doc/3712659?query=data%20science",
+    "//doc/4997267?query=data%20science",
+    "//doc/4372673?query=data%20science",
+    "//doc/3779060?query=data%20science",
+    "//doc/3495410?query=data%20science",
+    "//doc/4308832?query=data%20science",
+    "//doc/4079881?query=data%20science",
+]
+docs = [
+    "//doc/5041434?query=data%20science",
+    "//doc/5041567?query=data%20science",
+    "//doc/4283670?query=data%20science",
+    "//doc/3712659?query=data%20science",
+    "//doc/4997267?query=data%20science",
+]
+url = "https://www.kommersant.ru"
+links = list(map(lambda x: url + x, docs))
+## links = ['https://www.kommersant.ru//doc/5041434?query=data%20science', 'https://www.kommersant.ru//doc/5041567?query=data%20science', 'https://www.kommersant.ru//doc/4283670?query=data%20science', 'https://www.kommersant.ru//doc/3712659?query=data%20science', 'https://www.kommersant.ru//doc/4997267?query=data%20science']
+
+print("#" * 40, "Task 6", "#" * 40)
+data = [
+    (0.00632, 6.575, 65.2, 296.0, 4.98),
+    (0.02731, 6.421, 78.9, 242.0, 9.14),
+    (0.02729, 7.185, 61.1, 242.0, 4.03),
+    (0.03237, 6.998, 45.8, 222.0, 2.94),
+    (0.06905, 7.147, 54.2, 222.0, 5.33),
+    (0.02985, 6.43, 58.7, 222.0, 5.21),
+    (0.08829, 6.012, 66.6, 311.0, 12.43),
+]
+updated_data = list(map(lambda x: (*x, round(x[0] * x[3] * x[4], 2)), data))
+ic(updated_data)
+# updated_data = [
+#     (0.00632, 6.575, 65.2, 296.0, 4.98, 9.32),
+#     (0.02731, 6.421, 78.9, 242.0, 9.14, 60.41),
+#     (0.02729, 7.185, 61.1, 242.0, 4.03, 26.61),
+#     (0.03237, 6.998, 45.8, 222.0, 2.94, 21.13),
+#     (0.06905, 7.147, 54.2, 222.0, 5.33, 81.7),
+#     (0.02985, 6.43, 58.7, 222.0, 5.21, 34.53),
+#     (0.08829, 6.012, 66.6, 311.0, 12.43, 341.31),
+# ]
