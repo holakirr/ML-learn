@@ -188,9 +188,11 @@ ic(count_a)
 
 # Отбираем слова из пяти и более букв
 filtered_words = filter(lambda x: len(x) >= 5, words_list)
+ic(filtered_words)
 # Все отобранные слова переводим в нижний регистр и считаем число букв 'a' в них
 # Результат выдаём в виде кортежа (слово, количество букв "a")
 count_a = map(lambda x: (x, x.lower().count("a")), filtered_words)
+ic(count_a)
 # Переводим объект map в list и печатаем его
 ic(list(count_a))
 
