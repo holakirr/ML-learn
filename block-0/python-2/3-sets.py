@@ -49,7 +49,6 @@ ic(s1)
 print("#" * 40)
 s1 = set("abcdef")
 s1.remove("f")
-s1
 ic(s1)
 # {'a', 'b', 'c', 'd', 'e'}
 
@@ -69,7 +68,7 @@ print("#" * 40)
 num_set = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 date_num = set([1, 9, 4, 8])
 ic(num_set.union(date_num))
-{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+# {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 
 print("#" * 40, "intersection", "#" * 40)
 cluster1 = {"item1", "item2", "item3", "item4"}

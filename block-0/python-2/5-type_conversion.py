@@ -1,3 +1,5 @@
+from typing import Dict
+
 from icecream import ic
 
 print("#" * 100)
@@ -128,7 +130,7 @@ s = "50.4"
 print("#" * 40, "Tuples and Lists", "#" * 40)
 dictionary = {"Anne": 15, "Sam": 30, "Marie": 22}
 only_keys = dictionary.keys()
-only_keys
+ic(only_keys)
 # dict_keys(["Anne", "Sam", "Marie"])
 
 # only_keys = only_keys + ["Tom", "Curt"]
@@ -139,7 +141,7 @@ ic(only_keys)
 # ["Anne", "Sam", "Marie", "Tom", "Curt"]
 
 print("#" * 40)
-d = {("Amanda", 22, "NY"): "3rd place"}
+d: Dict[tuple, str] = {("Amanda", 22, "NY"): "3rd place"}
 input_list = ["Collin", 23, "LA"]
 # создаём новый ключ для словаря. Но пока этот ключ в виде списка.
 input_place = "2nd place"

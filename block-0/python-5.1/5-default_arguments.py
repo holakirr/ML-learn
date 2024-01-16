@@ -71,11 +71,11 @@ get_cola()
 
 
 # Аргументу ice не присваиваем значение по умолчанию:
-def get_cola(ice):
-    if ice == True:
-        print("Cola with ice is ready!")
-    else:
-        print("Cola without ice is ready!")
+# def get_cola(ice):
+#     if ice == True:
+#         print("Cola with ice is ready!")
+#     else:
+#         print("Cola without ice is ready!")
 
 
 # get_cola()
@@ -106,7 +106,7 @@ print("#" * 40)
 
 # В функцию должны передаваться 2 значения:
 # число и степень корня
-def root(value):
+def root_base(value):
     # Как мы уже выяснили, чтобы посчитать
     # корень степени n из числа, можно возвести это число
     # в степень 1/n
@@ -115,7 +115,7 @@ def root(value):
 
 
 # Посчитаем корень 3-ей степени (кубический корень) из 27
-ic(root(81))
+ic(root_base(81))
 # Будет напечатано:
 # 9.0
 
@@ -157,7 +157,7 @@ ic(group3)
 # {'Smirnov': 3, 'Kuznetsova': 5}
 
 
-def add_mark(name, mark, journal=None):
+def add_mark_final(name, mark, journal=None):
     # Если журнал является None
     # (напоминание: сравнивать объект с None
     # корректнее через оператор is),
@@ -168,12 +168,12 @@ def add_mark(name, mark, journal=None):
     return journal
 
 
-group2 = add_mark("Smirnov", 3)
+group2 = add_mark_final("Smirnov", 3)
 ic(group2)
 # Будет напечатано:
 # {'Smirnov': 3}
 
-group3 = add_mark("Kuznetsova", 5)
+group3 = add_mark_final("Kuznetsova", 5)
 ic(group3)
 # Будет напечатано:
 # {'Kuznetsova': 5}

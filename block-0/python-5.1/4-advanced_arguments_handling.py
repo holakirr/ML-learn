@@ -24,28 +24,16 @@ ic(mean(5, 4, 4, 3))
 # Будет напечатано
 # 4.0
 
-print("#" * 40)
-
-
-def mean(*numbers):
-    result = sum(numbers) / len(numbers)
-    return result
-
-
-ic(mean(5, 4, 4, 3))
-# Будет напечатано
-# 4.0
-
 print("#" * 40, "What is *args?", "#" * 40)
 
 
-def mean(*args):
+def mean_final(*args):
     ic(isinstance(args, tuple))
     result = sum(args) / len(args)
     return result
 
 
-ic(mean(1, 2, 3))
+ic(mean_final(1, 2, 3))
 
 print("#" * 40)
 
@@ -100,13 +88,13 @@ print("#" * 40)
 marks = [4, 5, 5, 5, 5, 3, 4, 4, 5, 4, 5]
 
 
-def mean_mark(name, *marks):
+def mean_mark_final(name, *marks):
     result = sum(marks) / len(marks)
     # Не возвращаем результат, а печатаем его
     ic(name + ":", result)
 
 
-mean_mark("Ivanov", *marks)
+mean_mark_final("Ivanov", *marks)
 # Должно быть напечатано:
 # Kuznetsov: 4.454545454545454
 
@@ -132,13 +120,13 @@ schedule(monday="Python", tuesday="SQL", friday="ML")
 # SyntaxError: keyword can't be an expression
 
 
-def schedule(**kwargs):
+def schedule_final(**kwargs):
     print("Week schedule:")
     for key in kwargs:
         print(key, kwargs[key], sep=" - ")
 
 
-schedule(monday="Python", tuesday="SQL", friday="ML")
+schedule_final(monday="Python", tuesday="SQL", friday="ML")
 # Будет напечатано:
 # Week schedule:
 # monday — Python
@@ -148,7 +136,7 @@ schedule(monday="Python", tuesday="SQL", friday="ML")
 lessons = {"Wednesday": "Maths", "Thursday": "SQL", "Friday": "Statistics"}
 # Использовали оператор ** для распаковки словаря в набор
 # значений именованных аргументов
-schedule(**lessons)
+schedule_final(**lessons)
 # Будет напечатано:
 # Week schedule:
 # Wednesday — Maths

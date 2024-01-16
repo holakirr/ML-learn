@@ -10,13 +10,13 @@ ic(dir(__builtins__))
 count = 10
 
 
-def function():
+def func():
     # Объявляем локальную переменную count
     count = 100
 
 
 # Вызываем функцию
-function()
+func()
 # Смотрим, изменилась ли переменная count
 ic(count)
 
@@ -28,13 +28,13 @@ print("#" * 40)
 words_list = ["foo", "bar", "baz"]
 
 
-def function():
+def funct():
     # Изменяем элемент списка
     words_list[1] = "quux"
 
 
 # Вызываем функцию
-function()
+funct()
 ic(words_list)
 
 ## Будет выведено:
@@ -59,43 +59,43 @@ ic(words_list)
 
 print("#" * 40, "Changing variables out of scope. Using Global.", "#" * 40)
 # Создадим глобальную переменную, изначально она равна 0
-global_count = 0
+# global_count = 0
 
 
-# Создадим функцию, которая прибавляет 1 к переменной global_count
-def add_item():
-    # Здесь мог бы быть код для добавления товара в базу данных
-    # Увеличим общее количество товаров на 1
-    global_count = global_count + 1
+# # Создадим функцию, которая прибавляет 1 к переменной global_count
+# def add_item():
+#     # Здесь мог бы быть код для добавления товара в базу данных
+#     # Увеличим общее количество товаров на 1
+#     global_count = global_count + 1
 
 
 # Вызовем функцию add_item()
 # add_item()
 # Напечатаем значение переменной global_count
-ic(global_count)
+# ic(global_count)
 
 ## Возникнет ошибка:
 ## UnboundLocalError: local variable 'global_count' referenced before assignment
 
 print("#" * 40)
 # Создадим глобальную переменную, изначально она равна 0
-global_count = 0
+# global_count = 0
 
 
-# Создадим функцию, которая прибавляет 1 к переменной global_count
-def add_item():
-    # Здесь мог бы быть код для добавления товара в базу данных
+# # Создадим функцию, которая прибавляет 1 к переменной global_count
+# def add_item():
+#     # Здесь мог бы быть код для добавления товара в базу данных
 
-    # Укажем, что global_count является глобальной переменной
-    global global_count
-    # Увеличим общее количество товаров на 1
-    global_count = global_count + 1
+#     # Укажем, что global_count является глобальной переменной
+#     global global_count
+#     # Увеличим общее количество товаров на 1
+#     global_count = global_count + 1
 
 
-# Вызовем функцию add_item()
-add_item()
-# Напечатаем значение переменной global_count
-print(global_count)
+# # Вызовем функцию add_item()
+# add_item()
+# # Напечатаем значение переменной global_count
+# print(global_count)
 
 
 ## Будет выведено:
@@ -160,19 +160,19 @@ print("#" * 40, "Changing variables out of scope. Using nonlocal.", "#" * 40)
 
 
 # Внешняя функция
-def outer():
-    # Создадим переменную, относящуюся к внешней функции
-    enclosing_count = 0
+# def outer():
+#     # Создадим переменную, относящуюся к внешней функции
+#     enclosing_count = 0
 
-    # Внутренняя функция
-    def inner():
-        # Прибавим 1 к enclosing_count
-        enclosing_count = enclosing_count + 1
-        # Напечатаем значение enclosing_count
-        print(enclosing_count)
+#     # Внутренняя функция
+#     def inner():
+#         # Прибавим 1 к enclosing_count
+#         enclosing_count = enclosing_count + 1
+#         # Напечатаем значение enclosing_count
+#         print(enclosing_count)
 
-    # Запустим внутреннюю функцию из внешней
-    inner()
+#     # Запустим внутреннюю функцию из внешней
+#     inner()
 
 
 # Запустим внешнюю функцию

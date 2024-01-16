@@ -185,7 +185,7 @@ print("#" * 40)
 
 
 # Нам остался финальный штрих — добавить проверку даты на корректность в функцию для регистрации!
-def register(surname, name, date, middle_name=None, registry=None):
+def registerFinal(surname, name, date, middle_name=None, registry=None):
     # Вспомогательная функция для предобработки даты
     def preprocessing_date(date):
         # Разделяем строку по символу точки
@@ -235,18 +235,18 @@ def register(surname, name, date, middle_name=None, registry=None):
     return registry
 
 
-reg = register("Petrova", "Maria", "13.03.2003", "Ivanovna")
-reg = register("Ivanov", "Sergej", "24.09.1995", registry=reg)
-reg = register("Smith", "John", "13.02.2003", registry=reg)
+reg = registerFinal("Petrova", "Maria", "13.03.2003", "Ivanovna")
+reg = registerFinal("Ivanov", "Sergej", "24.09.1995", registry=reg)
+reg = registerFinal("Smith", "John", "13.02.2003", registry=reg)
 ic(reg)
 ## [('Petrova', 'Maria', 'Ivanovna', 13, 3, 2003), ('Ivanov', 'Sergej', None, 24, 9, 1995), ('Smith', 'John', None, 13, 2, 2003)]
 
-# reg = register("Ivanov", "Sergej", "24.13.1995")
+# reg = registerFinal("Ivanov", "Sergej", "24.13.1995")
 ## ValueError: Invalid Date!
 
 print("#" * 40, "Second task", "#" * 40)
 
-Point = tuple[int, int]
+Point = tuple[float, float]
 
 
 # Функция для вычисления сторон треугольника
@@ -360,10 +360,10 @@ ic(check_exist_triangle(a=1.8, b=1.8, c=3.6))
 ## False
 
 print("#" * 40)
+
+
 # And now let's combine it all together
-
-
-def triangle(p1, p2, p3):
+def triangleFinal(p1, p2, p3):
     check_exist_triangle = lambda a, b, c: a + b > c and a + c > b and b + c > a
 
     # Функция для вычисления сторон треугольника
@@ -403,11 +403,11 @@ def triangle(p1, p2, p3):
     return result
 
 
-print(triangle(p1=(2, 2), p2=(4, 1.25), p3=(1, 4.5)))
+print(triangleFinal(p1=(2, 2), p2=(4, 1.25), p3=(1, 4.5)))
 ## {'a': 2.1360009363293826, 'b': 2.692582403567252, 'c': 4.422951503238533, 'perimeter': 9.251534843135168, 'area': 2.1250000000000027}
-print(triangle(p1=(1, 1), p2=(1, 4), p3=(5, 1)))
+print(triangleFinal(p1=(1, 1), p2=(1, 4), p3=(5, 1)))
 ## {'a': 3.0, 'b': 4.0, 'c': 5.0, 'perimeter': 12.0, 'area': 6.0}
-# print(triangle(p1=(2.5, 2), p2=(4, 1), p3=(1, 3)))
+# print(triangleFinal(p1=(2.5, 2), p2=(4, 1), p3=(1, 3)))
 ## ValueError: Треугольник не существует
 
 print("#" * 40, "Third task", "#" * 40)
@@ -463,7 +463,7 @@ semi_axes = lambda p1, p2, p3: (
     (((p3[0] - p1[0]) ** 2 + (p3[1] - p1[1]) ** 2) ** 0.5),
 )
 
-ic(semi_axes(p1=(3, 2.5), p2=(4.5, 2.5), p3=(3, 3.5)))
+ic(semi_axes(p1=(3.0, 2.5), p2=(4.5, 2.5), p3=(3, 3.5)))
 ## (1.5, 1.0)
 
 print("#" * 40)
