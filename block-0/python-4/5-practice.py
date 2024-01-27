@@ -97,8 +97,8 @@ target_word = "гостья"
 target_chapter = 15
 
 # Ваш код здесь
-term_frequency = chapter_words_count[target_chapter][target_word] / len(
-    chapter_words_count[target_chapter].keys()
+term_frequency = chapter_words_count[target_chapter][target_word] / sum(
+    chapter_words_count[target_chapter].values()
 )
 print(term_frequency)
 
@@ -113,7 +113,7 @@ for chapter in chapter_words_count:
     if not target_word in chapter:
         continue
     else:
-        word_count += chapter[target_word]
+        word_count += 1
 document_frequency = word_count / len(chapter_words_count)
 print(document_frequency)
 
@@ -123,8 +123,8 @@ target_word = "анна"
 target_chapter = 4
 
 # Ваш код здесь
-term_frequency = chapter_words_count[target_chapter][target_word] / len(
-    chapter_words_count[target_chapter].keys()
+term_frequency = chapter_words_count[target_chapter][target_word] / sum(
+    chapter_words_count[target_chapter].values()
 )
 word_count = 0
 document_frequency = None
@@ -132,7 +132,7 @@ for chapter in chapter_words_count:
     if not target_word in chapter:
         continue
     else:
-        word_count += chapter[target_word]
+        word_count += 1
 document_frequency = word_count / len(chapter_words_count)
 tf_idf = term_frequency * log(1 / document_frequency)
 print(tf_idf)
@@ -145,8 +145,8 @@ target_chapter = 3
 three_words = {}
 words_tf_idf = {}
 for word in chapter_words_count[target_chapter]:
-    term_frequency = chapter_words_count[target_chapter][word] / len(
-        chapter_words_count[target_chapter].keys()
+    term_frequency = chapter_words_count[target_chapter][word] / sum(
+        chapter_words_count[target_chapter].values()
     )
     word_count = 0
     document_frequency = None
@@ -154,7 +154,7 @@ for word in chapter_words_count[target_chapter]:
         if not word in chapter:
             continue
         else:
-            word_count += chapter[word]
+            word_count += 1
     document_frequency = word_count / len(chapter_words_count)
     tf_idf = term_frequency * log(1 / document_frequency)
     words_tf_idf[word] = tf_idf
