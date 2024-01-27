@@ -1,3 +1,5 @@
+from hmac import new
+
 from icecream import ic
 
 print("#" * 100)
@@ -198,3 +200,68 @@ ic(list(count_a))
 
 ## Будет выведено:
 ## [("We're", 0), ('small', 1), ('village', 1), ('Chicago', 1), ("cousin's", 0), ('getting', 0), ('married.', 1)]
+
+print("#" * 40, "Example 5", "#" * 40)
+# Выгрузка данных о параметрах человеческого тела
+data = [
+    ("Amanda", 1.61, 51),
+    ("Patricia", 1.65, 61),
+    ("Marcos", 1.91, 101),
+    ("Andrey", 1.79, 61),
+    ("Nikos", 1.57, 78),
+    ("Felicia", 1.63, 56),
+    ("Lubov", 1.53, 34),
+]
+# Решение
+# Создаём lambda-функцию, которая считает BMI, и применяем её к каждому элементу списка
+map_func = lambda x: (*x, x[2] / (x[1] ** 2))
+updated_data = map(map_func, data)
+
+# Итоговый код
+# Создаём lambda-функцию, которая считает BMI, и применяем её к каждому элементу списка
+map_func = lambda x: (*x, x[2] / (x[1] ** 2))
+updated_data = map(map_func, data)
+# Создаём lambda-функцию, которая возвращает True, если 18.5 <= BMI <= 25
+filter_func = lambda x: 18.5 <= x[3] <= 25
+# Применяем эту функцию к результату работы map()
+filtered_data = filter(filter_func, updated_data)
+# Переводим объект filter в list и печатаем его
+ic(list(filtered_data))
+
+## Будет выведено:
+## [('Amanda', 1.61, 51, 19.7), ('Patricia', 1.65, 61, 22.4), ('Andrey', 1.79, 61, 19.0), ('Felicia', 1.63, 56, 21.1)]
+
+print("#" * 40, "Task 3", "#" * 40)
+reg = [
+    ("Ivanov", "Sergej", 24, 9, 1995),
+    ("Smith", "John", 13, 2, 2003),
+    ("Petrova", "Maria", 13, 3, 2003),
+]
+# new_reg = [('Smith J.', 13, 2, 2003), ('Petrova M.', 13, 3, 2003)]
+new_reg = list(
+    map(
+        lambda x: (f"{x[0]} {x[1][0]}.", *x[2:]),
+        list(filter(lambda x: x[4] >= 2000, reg)),
+    )
+)
+ic(new_reg)
+
+print("#" * 40, "Task 4", "#" * 40)
+data = [
+    (0.00632, 6.575, 65.2, 296.0, 4.98),
+    (0.02731, 6.421, 78.9, 242.0, 9.14),
+    (0.02729, 7.185, 61.1, 242.0, 4.03),
+    (0.03237, 6.998, 45.8, 222.0, 2.94),
+    (0.06905, 7.147, 54.2, 222.0, 5.33),
+    (0.02985, 6.43, 58.7, 222.0, 5.21),
+    (0.08829, 6.012, 66.6, 311.0, 12.43),
+]
+# filtered_data = [
+#     (0.02731, 6.421, 78.9, 242.0, 9.14, 60.41),
+#     (0.06905, 7.147, 54.2, 222.0, 5.33, 81.7),
+#     (0.08829, 6.012, 66.6, 311.0, 12.43, 341.31),
+# ]
+filtered_data = list(
+    filter(lambda x: x[5] > 60, map(lambda x: (*x, round(x[0] * x[3] * x[4], 2)), data))
+)
+ic(filtered_data)
