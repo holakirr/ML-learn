@@ -16,13 +16,13 @@ def prepare_input_string(input_string) -> set[int]:
 
 
 # Resulting function
-def find_intersection(input_string1, set2):
+def find_intersection(input_string1, input_string2):
     try:
         set1 = prepare_input_string(input_string1)
         set2 = prepare_input_string(input_string2)
-        print(list(set1.intersection(set2)))
+        ic(list(set1.intersection(set2)))
     except ValueError:
-        print("Некорректный ввод")
+        ic("Некорректный ввод")
 
 
 find_intersection(input_string1, input_string2)
