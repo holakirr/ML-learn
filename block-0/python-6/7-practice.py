@@ -75,4 +75,75 @@ def find_median(input_string: str) -> None:
 
 
 find_median(input_string)
-#   1, 5, 2, 3, 6
+
+print("#" * 40, "Task 4", "#" * 40)
+input_string: str = input("Введите число словами: ")
+# ваш код здесь
+number_word_dict = {
+    "ты": 1000,
+    "м": 1000000,
+    "сто": 100,
+    "двес": 200,
+    "трис": 300,
+    "четырес": 400,
+    "пятьс": 500,
+    "шестьс": 600,
+    "семьс": 700,
+    "восемьс": 800,
+    "девятьс": 900,
+    "одинн": 11,
+    "двен": 12,
+    "трин": 13,
+    "четырн": 14,
+    "пятн": 15,
+    "шестн": 16,
+    "семн": 17,
+    "восемн": 18,
+    "девятн": 19,
+    "двад": 20,
+    "трид": 30,
+    "сор": 40,
+    "пятьд": 50,
+    "шестьд": 60,
+    "семьд": 70,
+    "восемьд": 80,
+    "девяно": 90,
+    "дес": 10,
+    "н": 0,
+    "о": 1,
+    "дв": 2,
+    "т": 3,
+    "ч": 4,
+    "п": 5,
+    "ш": 6,
+    "с": 7,
+    "в": 8,
+    "д": 9,
+}
+
+
+def transform_string_to_integer(input_string: str) -> int:
+    units = 0
+    thousands = 0
+    millions = 0
+
+    # Iterating through the list of words
+    for word in input_string.split(" "):
+        # Iterating through the dictionary of words and their numbers
+        for key in number_word_dict:
+            if word.startswith(key):
+                # Separately calculating millions, thousands and units
+                if key == "м":
+                    millions = units * number_word_dict[key]
+                    units = 0
+                elif key == "ты":
+                    thousands = units * number_word_dict[key]
+                    units = 0
+                else:
+                    units += number_word_dict[key]
+                break
+    # Returning the sum of millions, thousands and units
+    return units + thousands + millions
+
+
+ic(transform_string_to_integer(input_string))
