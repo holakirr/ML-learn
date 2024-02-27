@@ -26,3 +26,26 @@ def find_intersection(input_string1, input_string2):
 
 
 find_intersection(input_string1, input_string2)
+
+print("#" * 40, "Task 2", "#" * 40)
+input_string = input("Введите последовательность чисел: ")
+
+
+# Replacing "," with "." for correct number spelling and splitting the string by " " and then converting the list of strings to the list of floats
+def format_input_string(input_string: str) -> list[int]:
+    res = []
+    for num in list(input_string.replace(",", ".").split(" ")):
+        try:
+            res.append(float(num))
+        except:
+            continue
+    return res
+
+
+# Finding min and max values in the list of numbers
+def find_min_max(numbers: list[int]) -> tuple[int, int]:
+    return min(numbers), max(numbers)
+
+
+res_string = "Minimum: {}\nMaximum: {}"
+print(res_string.format(*find_min_max(format_input_string(input_string))))
