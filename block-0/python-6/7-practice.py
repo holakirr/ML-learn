@@ -48,4 +48,31 @@ def find_min_max(numbers: list[int]) -> tuple[int, int]:
 
 
 res_string = "Minimum: {}\nMaximum: {}"
-print(res_string.format(*find_min_max(format_input_string(input_string))))
+ic(res_string.format(*find_min_max(format_input_string(input_string))))
+
+
+print("#" * 40, "Task 3", "#" * 40)
+input_string = input("Введите последовательность чисел: ")
+# ваш код здесь
+
+
+def find_median(input_string: str) -> None:
+    try:
+        # Preparing data for the future calculations
+        nums = list(map(int, input_string.split(", ")))
+        nums.sort()
+        res: float
+        # Finding median
+        length = len(nums)
+        if length % 2 == 0:
+            res = (nums[length // 2 - 1] + nums[length // 2]) / 2
+        else:
+            res = nums[length // 2]
+        ic("Median: {}".format(float(res)))
+    except ValueError:
+        ic("Некорректный ввод")
+        return
+
+
+find_median(input_string)
+#   1, 5, 2, 3, 6
