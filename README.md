@@ -1,6 +1,6 @@
 # Python Machine Learning Project
 
-This project is a part of my journey to learn Python and Machine Learning.
+This project is a part of my journey to learn Python and Machine Learning with [Skillfactory Data Scientist course](https://skillfactory.ru/data-scientist-pro-mgu).
 
 ## About
 
